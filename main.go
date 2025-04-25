@@ -11,6 +11,11 @@ func main() {
 
 	database.ConnectDatabase()
 
+	router.LoadHTMLGlob("templates/*")
+	router.Static("/assets", "./assets")
+
+	routes.RegisterMainRoutes(router)
 	routes.RegisterStudentRoutes(router)
+
 	router.Run()
 }
